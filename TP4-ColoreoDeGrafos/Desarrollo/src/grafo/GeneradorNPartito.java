@@ -3,25 +3,25 @@ package grafo;
 public class GeneradorNPartito extends Generador{
 
 	@Override
-	protected GrafoNDNP generarPorProbabilidad(int cantNodos, double probabilidad) {
+	public GrafoNDNP generarPorProbabilidad(int cantNodos, double probabilidad) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	protected GrafoNDNP generarPorPorcentajeAdyacencia(int cantNodos, double porcentajeAdyacencia) {
+	public GrafoNDNP generarPorPorcentajeAdyacencia(int cantNodos, double porcentajeAdyacencia) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	protected GrafoNDNP generarPorGrado(int cantNodos, int grado) {
+	public GrafoNDNP generarPorGrado(int cantNodos, int grado) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	protected GrafoNDNP generarNPartito(int cantNodos, int n) {
+	public GrafoNDNP generarNPartito(int cantNodos, int n) {
 		MatrizSimetrica matriz;
 		if (cantNodos % n != 0 && n >= cantNodos) {
 			throw new RuntimeException("No se puede generar grafo n partito.");

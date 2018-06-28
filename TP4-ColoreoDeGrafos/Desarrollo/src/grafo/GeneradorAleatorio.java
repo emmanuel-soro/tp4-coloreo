@@ -64,7 +64,7 @@ public class GeneradorAleatorio extends Generador {
 	}
 
 	@Override
-	protected GrafoNDNP generarNPartito(int cantNodos, int n) {
+	public GrafoNDNP generarNPartito(int cantNodos, int n) {
 		// TODO Auto-generated method stub
 		return null;
 	}
