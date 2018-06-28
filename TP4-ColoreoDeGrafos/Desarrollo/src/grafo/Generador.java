@@ -19,7 +19,7 @@ public abstract class Generador {
 	 *            Porcentaje de adyacencia. <br>
 	 * @return Gráfo. <br>
 	 */
-	protected abstract GrafoNDNP generarPorProbabilidad(final int cantNodos, final double probabilidad);
+	public abstract GrafoNDNP generarPorProbabilidad(final int cantNodos, final double probabilidad);
 
 	/**
 	 * Genera un gráfo dado su cantidad de nodos y el porcentaje de adyacencia. <br>
@@ -30,7 +30,7 @@ public abstract class Generador {
 	 *            Porcentaje de adyacencia. <br>
 	 * @return Gráfo. <br>
 	 */
-	protected abstract GrafoNDNP generarPorPorcentajeAdyacencia(final int cantNodos, final double porcentajeAdyacencia);
+	public abstract GrafoNDNP generarPorPorcentajeAdyacencia(final int cantNodos, final double porcentajeAdyacencia);
 
 	/**
 	 * Genera un gráfo dado sun cantidad de nodos y el grado. <br>
@@ -41,7 +41,7 @@ public abstract class Generador {
 	 *            Grado. <br>
 	 * @return Gráfo. <br>
 	 */
-	protected abstract GrafoNDNP generarPorGrado(final int cantNodos, final int grado);
+	public abstract GrafoNDNP generarPorGrado(final int cantNodos, final int grado);
 
 	/**
 	 * Genera un gráfo n-partitos. <br>
@@ -52,7 +52,7 @@ public abstract class Generador {
 	 *            Partitos. <br>
 	 * @return Gráfo. <br>
 	 */
-	protected abstract GrafoNDNP generarNPartito(final int cantNodos, final int n);
+	public abstract GrafoNDNP generarNPartito(final int cantNodos, final int n);
 
 	/**
 	 * Calcula el grado mínimo y el grado máximo del gráfo. <br>

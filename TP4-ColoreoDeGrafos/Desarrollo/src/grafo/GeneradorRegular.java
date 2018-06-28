@@ -3,12 +3,12 @@ package grafo;
 public class GeneradorRegular extends Generador {
 
 	@Override
-	protected GrafoNDNP generarPorProbabilidad(int cantNodos, double probabilidad) {
+	public GrafoNDNP generarPorProbabilidad(int cantNodos, double probabilidad) {
 		return null;
 	}
 
 	@Override
-	protected GrafoNDNP generarPorPorcentajeAdyacencia(int cantNodos, double porcentajeAdyacencia) {
+	public GrafoNDNP generarPorPorcentajeAdyacencia(int cantNodos, double porcentajeAdyacencia) {
 		MatrizSimetrica matriz;
 		int grado = (int) (((porcentajeAdyacencia / 100) * (cantNodos - 1)));
 		int cantAristas = (cantNodos * grado) / 2;
@@ -34,7 +34,7 @@ public class GeneradorRegular extends Generador {
 	}
 
 	@Override
-	protected GrafoNDNP generarPorGrado(int cantNodos, int grado) {
+	public GrafoNDNP generarPorGrado(int cantNodos, int grado) {
 		MatrizSimetrica matriz;
 		int cantidadAristas = 0;
 		double porcentajeDeAdyacencia;
@@ -66,7 +66,7 @@ public class GeneradorRegular extends Generador {
 	}
 
 	@Override
-	protected GrafoNDNP generarNPartito(int cantNodos, int n) {
+	public GrafoNDNP generarNPartito(int cantNodos, int n) {
 		// TODO Auto-generated method stub
 		return null;
 	}
