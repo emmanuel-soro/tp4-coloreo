@@ -1,14 +1,13 @@
 Algoritmo: Matula
-Número cromático: 51
-Primera aparición menor: 1046
+Número cromático: 52
+Primera aparición menor: 528
 CantColores  CantRepeticiones
-51 3
-52 44
-53 480
-54 2006
-55 3429
-56 2792
-57 1051
-58 178
-59 16
-60 1
+52 6
+53 124
+54 701
+55 1975
+56 3179
+57 2601
+58 1105
+59 277
+60 32
