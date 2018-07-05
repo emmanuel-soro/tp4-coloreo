@@ -12,31 +12,31 @@ import java.util.Random;
 import herramientas.Constante;
 
 /**
- * Clase que administra y resuelve un gráfo no dirigido no ponderado. <br>
+ * Clase que administra y resuelve un grafo no dirigido no ponderado. <br>
  */
 public class GrafoNDNP {
 	/**
-	 * Matriz simétrica del gráfo. <br>
+	 * Matriz simétrica del grafo. <br>
 	 */
 	private MatrizSimetrica matriz;
 	/**
-	 * Cantidad de nodos del gráfo. <br>
+	 * Cantidad de nodos del grafo. <br>
 	 */
 	private int cantidadDeNodos;
 	/**
-	 * Cantidad de aristas del gráfo. <br>
+	 * Cantidad de aristas del grafo. <br>
 	 */
 	private int cantidadDeAristas;
 	/**
-	 * Porcentaje de adyacencia del gráfo. <br>
+	 * Porcentaje de adyacencia del grafo. <br>
 	 */
 	private double porcentajeAdyacencia;
 	/**
-	 * Grado máximo del gráfo. <br>
+	 * Grado máximo del grafo. <br>
 	 */
 	private int gradoMaximo;
 	/**
-	 * Grado mínimo del gráfo. <br>
+	 * Grado mínimo del grafo. <br>
 	 */
 	private int gradoMinimo;
 	/**
@@ -44,12 +44,12 @@ public class GrafoNDNP {
 	 */
 	private Nodo[] nodos;
 	/**
-	 * Cantidad de colores del gráfo. <br>
+	 * Cantidad de colores del grafo. <br>
 	 */
 	private int cantidadDeColores;
 
 	/**
-	 * Crea un gráfo no dirigido y no ponderado. <br>
+	 * Crea un grafo no dirigido y no ponderado. <br>
 	 * 
 	 * @param path
 	 *            Dirección del archivo. <br>
@@ -98,16 +98,16 @@ public class GrafoNDNP {
 	}
 
 	/**
-	 * Crea un gráfo no dirigido y no ponderado. <br>
+	 * Crea un grafo no dirigido y no ponderado. <br>
 	 * 
 	 * @param matriz
-	 *            Matriz simétrica del gráfo. <br>
+	 *            Matriz simétrica del grafo. <br>
 	 * @param cantNodos
-	 *            Cantidad de nodos del gráfo. <br>
+	 *            Cantidad de nodos del grafo. <br>
 	 * @param cantAristas
-	 *            Cantidad de aristas del gráfo. <br>
+	 *            Cantidad de aristas del grafo. <br>
 	 * @param PorcAdyacencia
-	 *            Porcentaje de adyacencia del gráfo. <br>
+	 *            Porcentaje de adyacencia del grafo. <br>
 	 * @param gMin
 	 *            Grado mínimo. <br>
 	 * @param gMax
@@ -124,16 +124,16 @@ public class GrafoNDNP {
 	}
 
 	/**
-	 * Devuelve la matriz simétrica del gráfo. <br>
+	 * Devuelve la matriz simétrica del grafo. <br>
 	 * 
-	 * @return Matriz simétrica del gráfo. <br>
+	 * @return Matriz simétrica del grafo. <br>
 	 */
 	public MatrizSimetrica getMatrizSimetrica() {
 		return this.matriz;
 	}
 
 	/**
-	 * Crea un archivo de entrada de gráfo, un generador de casos de prueba.
+	 * Crea un archivo de entrada de grafo, un generador de casos de prueba.
 	 * <br>
 	 * 
 	 * @param pathIn
@@ -146,7 +146,7 @@ public class GrafoNDNP {
 					+ this.gradoMaximo + " " + this.gradoMinimo);
 			for (int i = 0; i < cantidadDeNodos; i++) {
 				for (int j = i + 1; j < cantidadDeNodos; j++) {
-					if (this.matriz.getMatrizSimetrica(i, j)) {
+					if (this.matriz.sonAdyecentes(i, j)) {
 						entrada.println(i + " " + j);
 					}
 				}
@@ -158,7 +158,7 @@ public class GrafoNDNP {
 	}
 
 	/**
-	 * Colorea un gráfo utilizando el algoritmo de coloración de Nelsh-Powell.
+	 * Colorea un grafo utilizando el algoritmo de coloración de Nelsh-Powell.
 	 * <br>
 	 */
 	public void colorearPowell() {
@@ -167,7 +167,7 @@ public class GrafoNDNP {
 	}
 
 	/**
-	 * Colorea un gráfo utilizando el algoritmo de coloración de Matula. <br>
+	 * Colorea un grafo utilizando el algoritmo de coloración de Matula. <br>
 	 */
 	public void colorearMatula() {
 		ordenarGradoMenorAMayor(nodos, 0, nodos.length - 1);
@@ -182,7 +182,7 @@ public class GrafoNDNP {
 	}
 
 	/**
-	 * Colorea el gráfo. <br>
+	 * Colorea el grafo. <br>
 	 */
 	private void colorear() {
 		int i, color;
@@ -235,7 +235,7 @@ public class GrafoNDNP {
 	 * @return true si es adyacente, false de lo contrario. <br>
 	 */
 	private boolean esAdyacente(Nodo nodoUno, Nodo nodoDos) {
-		return matriz.getMatrizSimetrica(nodoUno.getNumero(), nodoDos.getNumero()) == true;
+		return matriz.sonAdyecentes(nodoUno.getNumero(), nodoDos.getNumero()) == true;
 	}
 
 	/**
@@ -388,7 +388,7 @@ public class GrafoNDNP {
 	}
 
 	/**
-	 * Graba un archivo con las características usadas para resolver el gráfo.
+	 * Graba un archivo con las características usadas para resolver el grafo.
 	 * <br>
 	 * 
 	 * @param codAlgoritmo
@@ -434,7 +434,7 @@ public class GrafoNDNP {
 	}
 
 	/**
-	 * Graba la salida del gráfo. <br>
+	 * Graba la salida del grafo. <br>
 	 * 
 	 * @param pathOut
 	 *            Dirección del archivo de salida. <br>
@@ -480,9 +480,9 @@ public class GrafoNDNP {
 	}
 
 	/**
-	 * Devuelve los nodos del gráfo. <br>
+	 * Devuelve los nodos del grafo. <br>
 	 * 
-	 * @return Nodos del gráfo. <br>
+	 * @return Nodos del grafo. <br>
 	 */
 	public Nodo[] getVectorNodos() {
 		return this.nodos;

@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import grafo.MatrizSimetrica;
 import grafo.Nodo;
 
-public class ProgramaProbador {
+public class ComparadorArchivos {
 	/**
 	 * Matriz simétrica del gráfo. <br>
 	 */
@@ -47,7 +47,7 @@ public class ProgramaProbador {
 	 * @param pathOut
 	 *            Dirección del archivo de salida. <br>
 	 */
-	public ProgramaProbador(final String pathIn, final String pathOut) {
+	public ComparadorArchivos(final String pathIn, final String pathOut) {
 		FileReader ent = null;
 		FileReader sal = null;
 		BufferedReader entrada = null;
@@ -116,7 +116,7 @@ public class ProgramaProbador {
 	 * 
 	 * @return true si coincide el resultado, false de lo contrario. <br>
 	 */
-	public boolean probador() {
+	public boolean comparar() {
 		int color, numero;
 		if (nodos.size() != matrizSimetrica.getPosiciones() || cantNodos != cantNodosColoreo
 				|| cantAristas != cantAristasColoreo) {

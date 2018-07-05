@@ -6,12 +6,11 @@ public class GeneradorAleatorio extends Generador {
 
 	@Override
 	public GrafoNDNP generarPorProbabilidad(int cantNodos, double probabilidad) {
-		// Probabilidad ejemplo= 0,5
 		int cantAristas = 0;
 		MatrizSimetrica matriz = new MatrizSimetrica(cantNodos);
 		for (int i = 0; i < cantNodos; i++) {
 			for (int j = i + 1; j < cantNodos; j++) {
-				if (!matriz.getMatrizSimetrica(i, j)) {
+				if (!matriz.sonAdyecentes(i, j)) {
 					if (Math.random() < probabilidad) {
 						matriz.setMatrizSimetrica(i, j);
 						cantAristas++;
@@ -19,11 +18,9 @@ public class GeneradorAleatorio extends Generador {
 				}
 			}
 		}
-		int cantTotAristas = (cantNodos * (cantNodos - 1)) / 2;
-		double porcentajeDeAdyacencia = Math.rint((cantAristas / cantTotAristas) * 100.0);
+		double porcentajeDeAdyacencia = matriz.getPorcentajeAdyacencia();
 		calcularGradoMinYMax(matriz, cantNodos);
-		GrafoNDNP grafo = new GrafoNDNP(matriz, cantNodos, cantAristas, porcentajeDeAdyacencia, gradoMax, gradoMin);
-		return grafo;
+		return new GrafoNDNP(matriz, cantNodos, cantAristas, porcentajeDeAdyacencia, gradoMax, gradoMin);
 	}
 
 	@Override
@@ -31,13 +28,13 @@ public class GeneradorAleatorio extends Generador {
 		Random arista = new Random();
 		MatrizSimetrica matriz = new MatrizSimetrica(cantNodos);
 		int maximoAristas = (cantNodos * (cantNodos - 1)) / 2;
+		//Calculo de T = ( N^2 – N ) / 2
 		int cantAristas = (int) (Math.rint((cantNodos * cantNodos - cantNodos) * 0.5 * (porcentajeAdyacencia / 100.0)));
 		int aristasAplicadas = 0;
-		double porcAdy = porcentajeAdyacencia;
 		while (aristasAplicadas != cantAristas) {
 			for (int i = 0; i < cantNodos; i++) {
 				for (int j = i + 1; j < cantNodos; j++) {
-					if (!matriz.getMatrizSimetrica(i, j)) {
+					if (!matriz.sonAdyecentes(i, j)) {
 						if (arista.nextInt(2) == 1) {
 							matriz.setMatrizSimetrica(i, j);
 							aristasAplicadas++;
@@ -53,19 +50,16 @@ public class GeneradorAleatorio extends Generador {
 			}
 		}
 		calcularGradoMinYMax(matriz, cantNodos);
-		GrafoNDNP grafo = new GrafoNDNP(matriz, cantNodos, cantAristas, porcAdy, gradoMax, gradoMin);
-		return grafo;
+		return new GrafoNDNP(matriz, cantNodos, cantAristas, porcentajeAdyacencia, gradoMax, gradoMin);
 	}
 
 	@Override
 	public GrafoNDNP generarPorGrado(int cantNodos, int grado) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public GrafoNDNP generarNPartito(int cantNodos, int n) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

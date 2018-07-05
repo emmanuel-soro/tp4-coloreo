@@ -4,44 +4,46 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-import probador.ProgramaProbador;
+import probador.ComparadorArchivos;
 
-public class PPTest {
+public class ColoreoTest {
 	private static final String PATH_ARCHIVOS_ENT = "Preparacion de Prueba/Programa Probador/Entrada/";
 	private static final String PATH_ARCHIVOS_SAL = "Preparacion de Prueba/Programa Probador/Salida Esperada/";
-
+	
+	private ComparadorArchivos probador;
+	
 	@Test
 	public void probadorGrafoRegular5N() {
-		ProgramaProbador probador = new ProgramaProbador(PATH_ARCHIVOS_ENT + "grafoRegular5N.in",
+		probador = new ComparadorArchivos(PATH_ARCHIVOS_ENT + "grafoRegular5N.in",
 				PATH_ARCHIVOS_SAL + "grafoRegular5N.out");
-		assertTrue(probador.probador());
+		assertTrue(probador.comparar());
 	}
 
 	@Test
 	public void probadorGrafo6N() {
-		ProgramaProbador probador = new ProgramaProbador(PATH_ARCHIVOS_ENT + "grafo6N.in",
+		probador = new ComparadorArchivos(PATH_ARCHIVOS_ENT + "grafo6N.in",
 				PATH_ARCHIVOS_SAL + "grafo6N.out");
-		assertTrue(probador.probador());
+		assertTrue(probador.comparar());
 	}
 
 	@Test
 	public void probadorGrafo7N() {
-		ProgramaProbador probador = new ProgramaProbador(PATH_ARCHIVOS_ENT + "grafo7N.in",
+		probador = new ComparadorArchivos(PATH_ARCHIVOS_ENT + "grafo7N.in",
 				PATH_ARCHIVOS_SAL + "grafo7N.out");
-		assertTrue(probador.probador());
+		assertTrue(probador.comparar());
 	}
 
 	@Test
 	public void probadorGrafo600y40() {
-		ProgramaProbador probador = new ProgramaProbador(PATH_ARCHIVOS_ENT + "grafo600y40.in",
+		probador = new ComparadorArchivos(PATH_ARCHIVOS_ENT + "grafo600y40.in",
 				PATH_ARCHIVOS_SAL + "grafo600y40.out");
-		assertTrue(probador.probador());
+		assertTrue(probador.comparar());
 	}
 
 	@Test
 	public void probadorGrafoNPartito() {
-		ProgramaProbador probador = new ProgramaProbador(PATH_ARCHIVOS_ENT + "grafoNPartito800y400.in",
+		probador = new ComparadorArchivos(PATH_ARCHIVOS_ENT + "grafoNPartito800y400.in",
 				PATH_ARCHIVOS_SAL + "grafoNPartito800y400.out");
-		assertTrue(probador.probador());
+		assertTrue(probador.comparar());
 	}
 }

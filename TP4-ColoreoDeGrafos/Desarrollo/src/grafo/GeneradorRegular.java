@@ -35,16 +35,17 @@ public class GeneradorRegular extends Generador {
 
 	@Override
 	public GrafoNDNP generarPorGrado(int cantNodos, int grado) {
+
 		MatrizSimetrica matriz;
 		int cantidadAristas = 0;
-		double porcentajeDeAdyacencia;
 		int saltoMax, j;
 		if (grado >= cantNodos) {
 			throw new RuntimeException("No se puede generar el grafo.");
 		}
 		matriz = new MatrizSimetrica(cantNodos);
 		if (((cantNodos % 2) == 0) || ((grado % 2) == 0)) {
-			saltoMax = (grado) / 2;
+			
+			saltoMax = grado / 2;
 			for (int salto = 0; salto <= saltoMax; salto++) {
 				for (int i = 1; i < cantNodos; i++) {
 					j = (i + salto) % cantNodos;
@@ -60,14 +61,13 @@ public class GeneradorRegular extends Generador {
 				}
 			}
 		}
-		porcentajeDeAdyacencia = (grado * (cantNodos - 1)) * 100;
+		double porcentajeDeAdyacencia = matriz.getPorcentajeAdyacencia();
 		GrafoNDNP grafo = new GrafoNDNP(matriz, cantNodos, cantidadAristas, porcentajeDeAdyacencia, grado, grado);
 		return grafo;
 	}
 
 	@Override
 	public GrafoNDNP generarNPartito(int cantNodos, int n) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
