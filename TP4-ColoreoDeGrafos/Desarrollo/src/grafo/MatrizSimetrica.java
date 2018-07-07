@@ -7,7 +7,7 @@ public class MatrizSimetrica {
 	/**
 	 * Indicador de si hay relación de nodos en la matriz simétrica. <br>
 	 */
-	private boolean[] matrizEnVector;
+	public boolean[] matrizEnVector; //se cambio de private a public para usar en GeneradorNPartito. Refactor por getter/setter/met
 	/**
 	 * Cantidad de nodos. <br>
 	 */
@@ -90,5 +90,17 @@ public class MatrizSimetrica {
 		int cantMaxAristas = posiciones*(posiciones - 1)/2;
 		
 		return Math.rint((double)cantAristas * 100 / cantMaxAristas);
+		
+		
+	}
+	//Metodo agregado para usar en GeneradorNPartito
+	public int posicionVector(int fila, int columna, int posiciones) {
+		if (fila > columna) {
+			int aux = fila;
+			fila = columna;
+			columna = aux;
+		}
+		return ((int) (fila * posiciones + columna - (Math.pow(fila, 2) + 3 * fila + 2) / 2));
+		
 	}
 }
