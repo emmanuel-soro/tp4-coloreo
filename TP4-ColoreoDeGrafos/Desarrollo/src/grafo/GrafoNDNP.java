@@ -81,7 +81,7 @@ public class GrafoNDNP {
 				} else {
 					fila = Integer.parseInt(data[0]);
 					columna = Integer.parseInt(data[1]);
-					matriz.setMatrizSimetrica(fila, columna);
+					matriz.insertarArista(fila, columna);
 					this.nodos[fila].setGrado(this.nodos[fila].getGrado() + 1);
 					this.nodos[columna].setGrado(this.nodos[columna].getGrado() + 1);
 				}
@@ -283,7 +283,7 @@ public class GrafoNDNP {
 	 *            Último nodo del vector. <br>
 	 */
 	private void ordenarGradoMayorAMenor(Nodo nodo[], int izq, int der) {
-		Nodo pivote = new Nodo(nodo[(izq + der) / 2]);
+		Nodo pivote = new Nodo(nodos[(izq + der) / 2]);
 		int i = izq, d = der;
 		do {
 			while ((nodo[i].compararGrados(pivote) > 0)) {
@@ -441,15 +441,15 @@ public class GrafoNDNP {
 	 * @param coloreo
 	 *            Lista de nodos. <br>
 	 */
-	public void grabarSalidaGrafo(final String pathOut, Nodo[] coloreo) {
+	public void grabarSalidaGrafo(final String pathOut) {
 		try {
-			algSeleccion(coloreo);
+			algSeleccion(nodos);
 			PrintWriter salida = new PrintWriter(new File(pathOut));
 			salida.print(this.cantidadDeNodos + " " + this.cantidadDeColores + " ");
 			salida.print(this.cantidadDeAristas + " " + this.porcentajeAdyacencia + " ");
 			salida.println(this.gradoMaximo + " " + this.gradoMinimo);
 			for (int i = 0; i < this.cantidadDeNodos; i++) {
-				salida.println(coloreo[i].getNumero() + " " + coloreo[i].getColor());
+				salida.println(nodos[i].getNumero() + " " + nodos[i].getColor());
 			}
 			salida.close();
 		} catch (FileNotFoundException e) {
@@ -477,14 +477,5 @@ public class GrafoNDNP {
 			vector[i] = vector[minValor];
 			vector[minValor] = aux;
 		}
-	}
-
-	/**
-	 * Devuelve los nodos del grafo. <br>
-	 * 
-	 * @return Nodos del grafo. <br>
-	 */
-	public Nodo[] getVectorNodos() {
-		return this.nodos;
 	}
 }

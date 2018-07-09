@@ -78,7 +78,7 @@ public abstract class Generador {
 				gradoMax = sumador[j];
 			}
 		}
-		gradoMin = gradoMax - 1;
+		gradoMin = gradoMax;
 		for (int j = 0; j < sumador.length; j++) {
 			if (sumador[j] < gradoMin) {
 				gradoMin = sumador[j];

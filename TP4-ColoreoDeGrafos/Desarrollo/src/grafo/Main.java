@@ -35,5 +35,14 @@ public class Main {
 		GeneradorNPartito gnp = new GeneradorNPartito();
 		grafo = gnp.generarNPartito(4, 2);
 		grafo.grabarEntradaGrafo(PATH_ARCHIVOS + "grafoBipartito4N.in");
+		
+		grafo = gnp.generarNPartito(5, 2);
+		grafo.grabarEntradaGrafo(PATH_ARCHIVOS + "grafoBipartito5N.in");
+		
+		grafo = gnp.generarNPartito(5, 3);
+		grafo.grabarEntradaGrafo(PATH_ARCHIVOS + "grafoTripartito5N.in");
+		
+		grafo = gnp.generarNPartito(6, 3);
+		grafo.grabarEntradaGrafo(PATH_ARCHIVOS + "grafoTripartito6N.in");
 	}
 }

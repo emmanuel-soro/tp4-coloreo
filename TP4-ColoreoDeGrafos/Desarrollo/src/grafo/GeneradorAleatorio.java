@@ -12,7 +12,7 @@ public class GeneradorAleatorio extends Generador {
 			for (int j = i + 1; j < cantNodos; j++) {
 				if (!matriz.sonAdyecentes(i, j)) {
 					if (Math.random() < probabilidad) {
-						matriz.setMatrizSimetrica(i, j);
+						matriz.insertarArista(i, j);
 						cantAristas++;
 					}
 				}
@@ -36,7 +36,7 @@ public class GeneradorAleatorio extends Generador {
 				for (int j = i + 1; j < cantNodos; j++) {
 					if (!matriz.sonAdyecentes(i, j)) {
 						if (arista.nextInt(2) == 1) {
-							matriz.setMatrizSimetrica(i, j);
+							matriz.insertarArista(i, j);
 							aristasAplicadas++;
 						}
 					}

@@ -69,7 +69,7 @@ public class ProgramaProbador {
 				} else {
 					fila = Integer.parseInt(data[0]);
 					columna = Integer.parseInt(data[1]);
-					matrizSimetrica.setMatrizSimetrica(fila, columna);
+					matrizSimetrica.insertarArista(fila, columna);
 				}
 			}
 		} catch (IOException e) {
