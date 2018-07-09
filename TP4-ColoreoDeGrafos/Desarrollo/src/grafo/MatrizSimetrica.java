@@ -64,7 +64,18 @@ public class MatrizSimetrica {
 		int indice = (int) (fila * this.posiciones + columna - (Math.pow(fila, 2) + 3 * fila + 2) / 2);
 		return this.matrizEnVector[indice];
 	}
-
+	/**
+	 * Devuelve el grado de un vertice
+	 */
+	public int calcularGrado(int nodo, int cantNodos) {
+		int grado = 0;
+		for (int j = 0; j < cantNodos; j++) {
+			if (nodo != j && this.sonAdyecentes(nodo, j)) {
+				grado++;
+			}
+		}
+		return grado;
+	}
 	/**
 	 * Devuelve la cantidad de posiciones en la matriz simétrica. <br>
 	 * 
@@ -93,7 +104,8 @@ public class MatrizSimetrica {
 		
 		
 	}
-	//Metodo agregado para usar en GeneradorNPartito
+	//******************************************************************//
+	//Metodos agregados para usar en GeneradorNPartito
 	public int posicionVector(int fila, int columna, int posiciones) {
 		if (fila > columna) {
 			int aux = fila;
@@ -103,4 +115,14 @@ public class MatrizSimetrica {
 		return ((int) (fila * posiciones + columna - (Math.pow(fila, 2) + 3 * fila + 2) / 2));
 		
 	}
+	
+	//Crea arista entre dos nodos en el vector
+	public void insertarArista(int fil, int col, int cantNodos) {
+		
+		if (fil > col) {
+			this.matrizEnVector[col * cantNodos + fil - (col * col + 3 * col + 2) / 2] = true;
+		} else
+			this.matrizEnVector[fil * cantNodos + col - (fil * fil + 3 * fil + 2) / 2] = true;
+	}
+	//******************************************************************//
 }

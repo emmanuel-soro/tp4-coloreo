@@ -18,27 +18,27 @@ public class GrafoNDNP {
 	/**
 	 * Matriz simétrica del grafo. <br>
 	 */
-	private MatrizSimetrica matriz;
+	public MatrizSimetrica matriz;
 	/**
 	 * Cantidad de nodos del grafo. <br>
 	 */
-	private int cantidadDeNodos;
+	public int cantidadDeNodos;
 	/**
 	 * Cantidad de aristas del grafo. <br>
 	 */
-	private int cantidadDeAristas;
+	public int cantidadDeAristas;
 	/**
 	 * Porcentaje de adyacencia del grafo. <br>
 	 */
-	private double porcentajeAdyacencia;
+	public double porcentajeAdyacencia;
 	/**
 	 * Grado máximo del grafo. <br>
 	 */
-	private int gradoMaximo;
+	public int gradoMaximo;
 	/**
 	 * Grado mínimo del grafo. <br>
 	 */
-	private int gradoMinimo;
+	public int gradoMinimo;
 	/**
 	 * Vector de nodos. <br>
 	 */
@@ -121,6 +121,16 @@ public class GrafoNDNP {
 		this.porcentajeAdyacencia = PorcAdyacencia;
 		this.gradoMinimo = gMin;
 		this.gradoMaximo = gMax;
+	}
+	
+	/** Constructor para grafos n-partitos**/
+	public GrafoNDNP(final int cantNodos) {
+		this.matriz = null;
+		this.cantidadDeNodos = cantNodos;
+		this.cantidadDeAristas = 0;
+		this.porcentajeAdyacencia = 0;
+		this.gradoMinimo = 0;
+		this.gradoMaximo = 0;
 	}
 
 	/**
@@ -486,6 +496,26 @@ public class GrafoNDNP {
 	 */
 	public Nodo[] getVectorNodos() {
 		return this.nodos;
+	}
+
+	public MatrizSimetrica getMatriz() {
+		return matriz;
+	}
+
+	public void setMatriz(MatrizSimetrica matriz) {
+		this.matriz = matriz;
+	}
+	
+	public int lenghtMatriz () {
+		return this.matriz.matrizEnVector.length;
+	}
+
+	public double getPorcentajeAdyacencia() {
+		return porcentajeAdyacencia;
+	}
+
+	public void setPorcentajeAdyacencia(double porcentajeAdyacencia) {
+		this.porcentajeAdyacencia = porcentajeAdyacencia;
 	}
 	
 	

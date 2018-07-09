@@ -6,7 +6,7 @@ public class Main {
 
 		final String PATH_ARCHIVOS = "Preparacion de Prueba/Programa Probador/Entrada/";
 		
-		//Aleatorio
+	/*	//Aleatorio
 		GeneradorAleatorio ga = new GeneradorAleatorio();
 		GrafoNDNP grafo = ga.generarPorPorcentajeAdyacencia(600, 40.0);
 		grafo.grabarEntradaGrafo(PATH_ARCHIVOS + "grafo600y40.in");
@@ -29,11 +29,11 @@ public class Main {
 		grafo.grabarEntradaGrafo(PATH_ARCHIVOS + "grafoN4G3.in");
 		
 		grafo = gr.generarPorGrado(2, 1);
-		grafo.grabarEntradaGrafo(PATH_ARCHIVOS + "grafoN2G1.in");
+		grafo.grabarEntradaGrafo(PATH_ARCHIVOS + "grafoN2G1.in");*/
 		
 		//n-partito
 		GeneradorNPartito gnp = new GeneradorNPartito();
-		grafo = gnp.generarNPartito(4, 2);
+		GrafoNDNP grafo = gnp.generarNPartito(5, 3);
 		grafo.grabarEntradaGrafo(PATH_ARCHIVOS + "grafoBipartito4N.in");
 	}
 }
